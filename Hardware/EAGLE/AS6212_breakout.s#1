@@ -2213,9 +2213,7 @@ ALERT Functionallity Enabled</text>
 <instance part="GND2" gate="1" x="66.04" y="139.7" smashed="yes">
 <attribute name="VALUE" x="63.5" y="137.16" size="1.778" layer="96"/>
 </instance>
-<instance part="JP5" gate="G$1" x="116.84" y="81.28" smashed="yes" rot="R270">
-<attribute name="NAME" x="122.301" y="86.36" size="1.778" layer="95" font="vector" rot="R180"/>
-</instance>
+<instance part="JP5" gate="G$1" x="116.84" y="81.28" smashed="yes" rot="R270"/>
 <instance part="P+2" gate="VCC" x="116.84" y="91.44" smashed="yes">
 <attribute name="VALUE" x="119.38" y="93.98" size="1.778" layer="96" rot="R180"/>
 </instance>
