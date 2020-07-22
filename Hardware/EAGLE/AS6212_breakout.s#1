@@ -271,13 +271,13 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="-0.7575" y1="-0.5225" x2="-0.7575" y2="0.5225" width="0.127" layer="21"/>
 <text x="-1.5" y="0.75" size="0.5" layer="25">&gt;NAME</text>
 <text x="-1.5" y="-1.25" size="0.5" layer="25">&gt;VALUE</text>
-<smd name="P$1" x="0.41" y="-0.21" dx="0.25" dy="0.25" layer="1" roundness="100"/>
-<smd name="P$2" x="0" y="-0.21" dx="0.25" dy="0.25" layer="1" roundness="100"/>
-<smd name="P$3" x="-0.41" y="-0.21" dx="0.25" dy="0.25" layer="1" roundness="100"/>
-<smd name="P$4" x="0.41" y="0.21" dx="0.25" dy="0.25" layer="1" roundness="100"/>
-<smd name="P$5" x="0" y="0.21" dx="0.25" dy="0.25" layer="1" roundness="100"/>
-<smd name="P$6" x="-0.41" y="0.21" dx="0.25" dy="0.25" layer="1" roundness="100"/>
-<circle x="1.25" y="-0.52" radius="0.15" width="0.1" layer="21"/>
+<smd name="P$1" x="0.41" y="0.21" dx="0.25" dy="0.25" layer="1" roundness="100"/>
+<smd name="P$2" x="0" y="0.21" dx="0.25" dy="0.25" layer="1" roundness="100"/>
+<smd name="P$3" x="-0.41" y="0.21" dx="0.25" dy="0.25" layer="1" roundness="100"/>
+<smd name="P$4" x="0.41" y="-0.21" dx="0.25" dy="0.25" layer="1" roundness="100"/>
+<smd name="P$5" x="0" y="-0.21" dx="0.25" dy="0.25" layer="1" roundness="100"/>
+<smd name="P$6" x="-0.41" y="-0.21" dx="0.25" dy="0.25" layer="1" roundness="100"/>
+<circle x="1.25" y="0.75" radius="0.15" width="0.1" layer="21"/>
 </package>
 </packages>
 <symbols>
@@ -2125,6 +2125,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="JP5" library="SparkFun-Jumpers" deviceset="JUMPER-SMT_3_2-NC_TRACE" device="_SILK" package3d_urn="urn:adsk.eagle:package:39289/1"/>
 <part name="P+2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="P+3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
+<part name="GND3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="P+4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="P+5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -2138,7 +2139,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="P+7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="R3" library="SparkFun-Resistors" deviceset="330OHM" device="-0603-1/10W-1%" value="330"/>
 <part name="JP7" library="SparkFun-Jumpers" deviceset="JUMPER-SMT_2_NC_TRACE" device="_SILK" package3d_urn="urn:adsk.eagle:package:39281/1"/>
-<part name="GND3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2222,6 +2222,9 @@ ALERT Functionallity Enabled</text>
 <instance part="P+3" gate="VCC" x="139.7" y="160.02" smashed="yes">
 <attribute name="VALUE" x="142.24" y="162.56" size="1.778" layer="96" rot="R180"/>
 </instance>
+<instance part="GND3" gate="1" x="139.7" y="139.7" smashed="yes">
+<attribute name="VALUE" x="137.16" y="137.16" size="1.778" layer="96"/>
+</instance>
 <instance part="P+4" gate="VCC" x="180.34" y="160.02" smashed="yes">
 <attribute name="VALUE" x="182.88" y="162.56" size="1.778" layer="96" rot="R180"/>
 </instance>
@@ -2255,9 +2258,6 @@ ALERT Functionallity Enabled</text>
 <attribute name="VALUE" x="47.244" y="91.44" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
 <instance part="JP7" gate="G$1" x="45.72" y="78.74" smashed="yes" rot="R90"/>
-<instance part="GND3" gate="1" x="147.32" y="139.7" smashed="yes">
-<attribute name="VALUE" x="144.78" y="137.16" size="1.778" layer="96"/>
-</instance>
 </instances>
 <busses>
 </busses>
@@ -2423,6 +2423,12 @@ ALERT Functionallity Enabled</text>
 <wire x1="66.04" y1="142.24" x2="66.04" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
+<pinref part="J1" gate="G$1" pin="1"/>
+<wire x1="137.16" y1="144.78" x2="139.7" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="144.78" x2="139.7" y2="142.24" width="0.1524" layer="91"/>
+<pinref part="GND3" gate="1" pin="GND"/>
+</segment>
+<segment>
 <pinref part="J2" gate="G$1" pin="1"/>
 <wire x1="170.18" y1="144.78" x2="175.26" y2="144.78" width="0.1524" layer="91"/>
 <wire x1="175.26" y1="144.78" x2="175.26" y2="142.24" width="0.1524" layer="91"/>
@@ -2439,12 +2445,6 @@ ALERT Functionallity Enabled</text>
 <pinref part="GND6" gate="1" pin="GND"/>
 <wire x1="45.72" y1="63.5" x2="45.72" y2="60.96" width="0.1524" layer="91"/>
 </segment>
-<segment>
-<pinref part="J1" gate="G$1" pin="2"/>
-<pinref part="GND3" gate="1" pin="GND"/>
-<wire x1="137.16" y1="147.32" x2="147.32" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="147.32" x2="147.32" y2="142.24" width="0.1524" layer="91"/>
-</segment>
 </net>
 <net name="ADD1" class="0">
 <segment>
@@ -2453,14 +2453,14 @@ ALERT Functionallity Enabled</text>
 <label x="55.88" y="139.7" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
+<pinref part="J1" gate="G$1" pin="2"/>
+<wire x1="137.16" y1="147.32" x2="139.7" y2="147.32" width="0.1524" layer="91"/>
+<label x="139.7" y="147.32" size="1.27" layer="95" xref="yes"/>
+</segment>
+<segment>
 <pinref part="JP6" gate="G$1" pin="2"/>
 <wire x1="195.58" y1="55.88" x2="198.12" y2="55.88" width="0.1524" layer="91"/>
 <label x="198.12" y="55.88" size="1.27" layer="95" xref="yes"/>
-</segment>
-<segment>
-<pinref part="J1" gate="G$1" pin="1"/>
-<wire x1="137.16" y1="144.78" x2="139.7" y2="144.78" width="0.1524" layer="91"/>
-<label x="139.7" y="144.78" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="N$1" class="0">
