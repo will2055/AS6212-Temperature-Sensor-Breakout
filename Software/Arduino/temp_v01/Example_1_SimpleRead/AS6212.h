@@ -32,6 +32,12 @@ class AS6212{
     uint8_t getAddress();
     float readTempC();
     float readTempF();
+    float getTLow();
+    bool setTLow(int16_t lowLimit);
+    float getTHigh();
+    bool setTHigh(int16_t highLimit);
+    int16_t readConfig();
+    void setConfig(int16_t targetState);
   private:
     TwoWire *_i2cPort = NULL;
     uint8_t _deviceAddress;

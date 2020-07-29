@@ -98,7 +98,7 @@ void AS6212::writeRegister(uint8_t reg, uint16_t data){
   _i2cPort->beginTransmission(_deviceAddress);
   _i2cPort->write(reg);
   _i2cPort->write(highByte(data));
-  _i2cPort->write(highByte(data));
+  _i2cPort->write(lowByte(data));
   _i2cPort->endTransmission();
 
 }
@@ -110,11 +110,11 @@ float AS6212::readTempC(){
   float finalTempC;
 
   if(digitalTempC < 32768){
-    finalTempC = (digitalTempC - 1) * 0.0078125;
+    finalTempC = digitalTempC * 0.0078125;
   }
 
   if(digitalTempC >= 32768){
-    finalTempC = digitalTempC * 0.0078125;
+    finalTempC = ((digitalTempC - 1) * 0.0078125) * -1;
   }
 
   return finalTempC;
@@ -127,25 +127,83 @@ float AS6212::readTempF(){
   
 }
 
-/*pause for testing*/
-//float AS6212::getTLow(){
-//  
-//}
-//
-//void AS6212::setTLow(float lowLimit){        
-//
-//  if(lowLimit < 0){
-//    int16_t lowTemp = ((lowLimit * -1) / 0.0078125) +1;
-//    writeRegister(TLOW, lowTemp);
-//  }
-//
-//  if(lowLimit >= 0){
-//    int16_t lowTemp = lowLimit * 0.0078125;
-//    writeRegister(TLOW, lowTemp);
-//  }
-//  
-//}
-//
-//void AS6212::setTHigh(){
-//  
-//}
+//Temperature limits are only larger than 0, i.e. non-negative
+
+//Set registers are being funky.
+
+float AS6212::getTLow(){
+	int16_t lowTemp = readRegister(TLOW);
+	
+	float temp;
+
+	if(lowTemp < 32768){
+		temp = lowTemp * 0.0078125;
+	}
+
+	if(lowTemp >= 32768){
+		temp = ((lowTemp - 1) * 0.0078125) * -1;
+	}
+	
+	return temp;
+}
+
+bool AS6212::setTLow(int16_t lowLimit){        
+
+  if(lowLimit < getTHigh() && lowLimit > 0){
+	  
+    int16_t lowTemp = lowLimit * 0.0078125;
+    writeRegister(TLOW, lowTemp);
+    return true;
+    
+  }
+  
+  else{
+	  
+	 return false;
+	 
+  }
+  
+}
+
+float AS6212::getTHigh(){
+	int16_t highTemp = readRegister(THIGH);
+	
+	float temp;
+
+	if(highTemp < 32768){
+		temp = highTemp * 0.0078125;
+	}
+
+	if(highTemp >= 32768){
+		temp = ((highTemp - 1) * 0.0078125) * -1;
+	}
+	
+	return temp;
+}
+
+bool AS6212::setTHigh(int16_t highLimit){
+	
+    if(highLimit > getTLow() && highLimit > 0){
+		
+		int16_t highTemp = highLimit * 0.0078125;
+		writeRegister(THIGH, highTemp);
+		return true;
+    
+  }
+  
+  else{
+	 return false;
+  }
+}
+
+int16_t AS6212::readConfig(){
+	
+		return readRegister(CONFIG);
+	
+}
+
+void AS6212::setConfig(int16_t targetState){
+		
+		writeRegister(CONFIG, targetState);
+		
+}
