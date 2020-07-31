@@ -33,9 +33,9 @@ enum AS6212_Register{
   //TMP_RES   =       0.0078125,
   
   //Helpful preset definitions for configuration register
-  DEFAULTM  =       0b0100000010100000,   //Default state
-  SLEEPM    =       0b0100000110100000,   //Sleep Mode
-  SLEEPSS   =       0b1100000110100000,   //Sleep Mode Single Shot
+  DEFAULTM  =       0x40A0,   //Default state
+  SLEEPMODE =       0x41A0,   //Sleep Mode
+  SLEEPSS   =       0xC1A0,   //Sleep Mode Single Shot
   //THIGH     =       0b0010100000000000,   //Default High Temp (80)C
   //TLOW      =       0b0010010110000000,   //Default Low Temp (75)C
   //TLOW1     =       0b0000101000000000,   //Low Temp (20)C (68)F

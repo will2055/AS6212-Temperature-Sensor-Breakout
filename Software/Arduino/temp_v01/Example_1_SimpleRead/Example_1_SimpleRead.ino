@@ -50,12 +50,12 @@ void loop(){
 //  Serial.println(sensor.getTHigh());
 
   Serial.print("\nConfiguration Register: ");
-  Serial.println(sensor.readConfig(), BIN);
+  Serial.println(sensor.readConfig(), HEX);
 
   Serial.println("\nTrying to set configuration register...");
   Serial.print("New Configuration Register: ");
-  sensor.setConfig(0b0100000110100000);
-  Serial.println(sensor.readConfig(), BIN);
+  sensor.setConfig(SLEEPSS);
+  Serial.println(sensor.readConfig(), HEX);
 
   
   
