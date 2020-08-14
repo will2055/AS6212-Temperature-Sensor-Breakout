@@ -582,22 +582,22 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <param name="layerSetup" value="(1*16)"/>
 <param name="mtCopper" value="0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm"/>
 <param name="mtIsolate" value="1.5mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm"/>
-<param name="mdWireWire" value="10mil"/>
-<param name="mdWirePad" value="8mil"/>
-<param name="mdWireVia" value="10mil"/>
-<param name="mdPadPad" value="8mil"/>
-<param name="mdPadVia" value="10mil"/>
-<param name="mdViaVia" value="10mil"/>
-<param name="mdSmdPad" value="8mil"/>
-<param name="mdSmdVia" value="8mil"/>
-<param name="mdSmdSmd" value="8mil"/>
+<param name="mdWireWire" value="5mil"/>
+<param name="mdWirePad" value="5mil"/>
+<param name="mdWireVia" value="5mil"/>
+<param name="mdPadPad" value="5mil"/>
+<param name="mdPadVia" value="5mil"/>
+<param name="mdViaVia" value="5mil"/>
+<param name="mdSmdPad" value="5mil"/>
+<param name="mdSmdVia" value="5mil"/>
+<param name="mdSmdSmd" value="5mil"/>
 <param name="mdViaViaSameLayer" value="8mil"/>
 <param name="mnLayersViaInSmd" value="2"/>
 <param name="mdCopperDimension" value="8mil"/>
 <param name="mdDrill" value="8mil"/>
 <param name="mdSmdStop" value="0mil"/>
-<param name="msWidth" value="10mil"/>
-<param name="msDrill" value="20mil"/>
+<param name="msWidth" value="5mil"/>
+<param name="msDrill" value="8mil"/>
 <param name="msMicroVia" value="9.99mm"/>
 <param name="msBlindViaRatio" value="0.5"/>
 <param name="rvPadTop" value="0.25"/>
@@ -1022,55 +1022,16 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <mfgpreviewcolor name="substratecolor" color="0xFF786E46"/>
 </mfgpreviewcolors>
 <errors>
-<approved hash="5,1,c6bf3ac340d45957"/>
-<approved hash="5,1,1490a61fc98adf9a"/>
-<approved hash="5,1,36275fb4c338ea37"/>
-<approved hash="5,1,8735b3207e62b788"/>
-<approved hash="5,1,82a50ce66d5a02c5"/>
-<approved hash="5,1,87a4b47b78aa4636"/>
-<approved hash="5,1,1412a69dc708d018"/>
-<approved hash="5,1,87b7cca07e66b78a"/>
-<approved hash="5,1,0c726e2676c21edb"/>
-<approved hash="5,1,4d131d3e4c4ee19c"/>
-<approved hash="5,1,36e459e9f7645fe2"/>
-<approved hash="5,1,3e57a3ccd7d269c1"/>
-<approved hash="5,1,131f7d6d05ac81e8"/>
-<approved hash="5,1,b6e6677ec5b99c69"/>
-<approved hash="5,1,11295b04afa41abe"/>
-<approved hash="5,1,50fd530513e3f10a"/>
-<approved hash="5,1,104209135052af82"/>
-<approved hash="5,1,8eed53731580202e"/>
-<approved hash="5,1,5d7f508513e3ff08"/>
-<approved hash="5,1,103e086d50d0b17e"/>
-<approved hash="5,1,2ae3fb41bba1890e"/>
-<approved hash="5,1,123a096f5156b0fa"/>
-<approved hash="5,1,52cc53050fe7f319"/>
-<approved hash="5,1,ebe8ab65748bde28"/>
-<approved hash="5,1,5f4e50850fe7fd1b"/>
-<approved hash="5,1,28d4fb43a7a38b03"/>
-<approved hash="5,1,f48c24e55c0e4dd3"/>
-<approved hash="5,1,75cfc859ffe0737e"/>
-<approved hash="5,1,ac645b629cb8159e"/>
-<approved hash="5,1,7317129a9fec7709"/>
-<approved hash="5,16,1e953311811d96f0"/>
-<approved hash="5,16,e88e650aff74789a"/>
-<approved hash="5,16,4582d4064409f7e7"/>
-<approved hash="19,1,069646264c260c96"/>
-<approved hash="19,1,a7321f269c4ad6c8"/>
-<approved hash="19,1,16c4c66acc6e1cc0"/>
-<approved hash="19,16,20bb3c44289e124e"/>
-<approved hash="19,16,00971ffe8f112234"/>
-<approved hash="19,16,3a5a1f5cfcf440fd"/>
-<approved hash="19,16,6341008903ccfcab"/>
-<approved hash="19,16,eab6988da94b998f"/>
-<approved hash="19,16,507372903f093e28"/>
-<approved hash="19,16,21bf04a04941fd53"/>
-<approved hash="3,1,6a7a180819246b56"/>
-<approved hash="3,1,6e7a180819246f56"/>
-<approved hash="3,1,6a7a180819246b56"/>
-<approved hash="3,1,6a6a18181b18696a"/>
-<approved hash="3,1,6e6a18181b186d6a"/>
-<approved hash="3,1,6a6a18181b18696a"/>
+<approved hash="19,1,0f480c904e904d48"/>
+<approved hash="19,1,e079f22833964f16"/>
+<approved hash="19,1,f7aad2ee10ea35ae"/>
+<approved hash="19,16,541c30f25cacd968"/>
+<approved hash="19,16,fb6c602ddf3dfc53"/>
+<approved hash="19,16,6c13448ab8d29d8b"/>
+<approved hash="19,16,48238a38d055abfa"/>
+<approved hash="19,16,9368bfe80f0e6609"/>
+<approved hash="19,16,dba6af91a17586b2"/>
+<approved hash="19,16,8db64a47511c689c"/>
 </errors>
 </board>
 </drawing>
