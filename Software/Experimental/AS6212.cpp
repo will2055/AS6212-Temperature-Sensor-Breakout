@@ -36,29 +36,43 @@
   initialize the sensor and be able to call to the library. 
 */
 
-AS6212::AS6212(){}
+AS6212::AS6212(){
 
+}
 
-/*Begin function. Sets the address for I2C communication.
-  Returns True if checks pass.*/
-  
+/*
+  Begin function. Sets the address for I2C communication.
+  Returns True if checks pass.
+ */
+
 bool AS6212::begin(uint8_t sensorAddress, TwoWire &wirePort){
 
   _i2cPort = &wirePort;
   _deviceAddress = sensorAddress;
 
   _i2cPort->beginTransmission(_deviceAddress);
-  if(_i2cPort->endTransmission() != 0) return false;
+  if(_i2cPort->endTransmission() != 0){
+    
+    return false;
+ 
+  }
 
-  else return true;
+  else{
+
+    return true;
+    
+  }
+  
 }
 
 uint8_t AS6212::getAddress(){
+
   return _deviceAddress;
+  
 }
 
 uint16_t AS6212::readRegister(uint8_t reg){
-  
+
   _i2cPort->beginTransmission(_deviceAddress);
   _i2cPort->write(reg);
   _i2cPort->endTransmission();
@@ -68,11 +82,15 @@ uint16_t AS6212::readRegister(uint8_t reg){
   int16_t datac = 0;
 
   if(_i2cPort->available() <= 2){
+
     data[0] = _i2cPort->read();
     data[1] = _i2cPort->read();
     datac = ((data[0] << 8) | data[1]);
+    
   }
+
   return datac;
+  
 }
 
 void AS6212::writeRegister(uint8_t reg, uint16_t data){
@@ -94,16 +112,98 @@ float AS6212::readTempC(){
   if(digitalTempC < 32768){
     finalTempC = digitalTempC * 0.0078125;
   }
-  
+
   if(digitalTempC >= 32768){
     finalTempC = ((digitalTempC - 1) * 0.0078125) * -1;
   }
-  
+
   return finalTempC;
+  
 }
 
 float AS6212::readTempF(){
   
   return readTempC() * 9.0 / 5.0 + 32.0;
   
+}
+
+//Temperature limits are only larger than 0, i.e. non-negative
+
+//Set registers are being funky.
+
+float AS6212::getTLow(){
+	int16_t lowTemp = readRegister(TLOW);
+	
+	float temp;
+
+	if(lowTemp < 32768){
+		temp = lowTemp * 0.0078125;
+	}
+
+	if(lowTemp >= 32768){
+		temp = ((lowTemp - 1) * 0.0078125) * -1;
+	}
+	
+	return temp;
+}
+
+bool AS6212::setTLow(int16_t lowLimit){        
+
+  if(lowLimit < getTHigh() && lowLimit > 0){
+	  
+    int16_t lowTemp = lowLimit * 0.0078125;
+    writeRegister(TLOW, lowTemp);
+    return true;
+    
+  }
+  
+  else{
+	  
+	 return false;
+	 
+  }
+  
+}
+
+float AS6212::getTHigh(){
+	int16_t highTemp = readRegister(THIGH);
+	
+	float temp;
+
+	if(highTemp < 32768){
+		temp = highTemp * 0.0078125;
+	}
+
+	if(highTemp >= 32768){
+		temp = ((highTemp - 1) * 0.0078125) * -1;
+	}
+	
+	return temp;
+}
+
+bool AS6212::setTHigh(int16_t highLimit){
+	
+    if(highLimit > getTLow() && highLimit > 0){
+		
+		int16_t highTemp = highLimit * 0.0078125;
+		writeRegister(THIGH, highTemp);
+		return true;
+    
+  }
+  
+  else{
+	 return false;
+  }
+}
+
+int16_t AS6212::readConfig(){
+	
+		return readRegister(CONFIG);
+	
+}
+
+void AS6212::setConfig(int16_t targetState){
+		
+		writeRegister(CONFIG, targetState);
+		
 }

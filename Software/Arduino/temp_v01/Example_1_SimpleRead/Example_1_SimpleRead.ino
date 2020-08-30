@@ -36,29 +36,7 @@ void loop(){
   Serial.println(tempC, 6);
   Serial.print("Temperature(°F): ");
   Serial.println(tempF, 6);
-  Serial.print("Low Temperature Limit: ");
-  Serial.println(sensor.getTLow());
-  Serial.print("High Temperature Limit: ");
-  Serial.println(sensor.getTHigh());
-
-  //sensor.setTLow(75);
-  //sensor.setTHigh(48);
-
-//  Serial.print("Low Temperature Limit: ");
-//  Serial.println(sensor.getTLow());
-//  Serial.print("High Temperature Limit: ");
-//  Serial.println(sensor.getTHigh());
-
-  Serial.print("\nConfiguration Register: ");
-  Serial.println(sensor.readConfig(), HEX);
-
-  Serial.println("\nTrying to set configuration register...");
-  Serial.print("New Configuration Register: ");
-  sensor.setConfig(SLEEPSS);
-  Serial.println(sensor.readConfig(), HEX);
-
-  
-  
+    
   delay(1000);
   
 }
