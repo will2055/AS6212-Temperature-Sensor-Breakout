@@ -1,4 +1,4 @@
-#include "AS6212.h"
+#include <AS6212.h>
 #include <Wire.h>
 
 AS6212 sensor;
