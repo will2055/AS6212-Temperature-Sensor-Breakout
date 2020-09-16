@@ -2388,6 +2388,7 @@ ALERT Functionallity Enabled</text>
 <text x="213.36" y="80.01" size="2.54" layer="97">0x4A</text>
 <text x="213.36" y="72.39" size="2.54" layer="97">0x4B</text>
 <text x="208.28" y="54.61" size="2.54" layer="97">Alert Enable</text>
+<text x="2.54" y="2.54" size="3.81" layer="97">*Special thanks to SparkFun for part library contributions</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0" smashed="yes"/>
